@@ -1,3 +1,12 @@
+@import "fonts.css";
+
+:root {
+      --col-weiss: #ffffff;
+      --col-blau: #0B3060;
+      --col-gruen: #E7FFB2;
+      --col-lightblue: #5D81B1;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,6 +15,36 @@
 
 
 body {
-    background-color: pink;
+    background-color: var(--col-blau);
+    font-family: "termina", sans-serif;
+    margin: clamp(1rem, 6vw, 8rem);  /* (min, preferred, max) */
 }
 
+h1 {
+    color: var(--col-gruen);
+    font-size: clamp(2rem, 8vw, 12rem);     /* (min, preferred, max) */
+    font-weight: 800;
+    line-height: 1.4;   /* ohne "einheit" ist es relativ zur Schriftgrösse */
+}
+
+h2 {
+    color: var(--col-weiss);
+    font-size: clamp(0.6rem, 2vw, 3rem);     /* (min, preferred, max) */
+    font-weight: 600;
+}
+
+h3 {
+
+}
+
+h4{
+
+}
+
+h5{
+
+}
+
+h6{
+
+}
