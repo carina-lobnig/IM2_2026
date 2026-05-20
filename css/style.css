@@ -13,11 +13,12 @@ html, body {
   font-family: "termina", sans-serif;
 }
 
-
 :root {
   --col-weiss: #ffffff;
   --col-blau: #0b3060;
   --col-gruen: #e7ffb2;
+  --col-orange: #ffb387;
+  --col-rot: #ff7d7f;
   --col-lightblue: #5d81b1;
 }
 
@@ -33,20 +34,22 @@ h1 {
   font-size: clamp(2rem, 8vw, 12rem); /* (min, preferred, max) */
   font-weight: 800;
   line-height: 1.4; /* ohne "einheit" ist es relativ zur Schriftgrösse */
-  margin: clamp(2rem, 9vw, 8rem); /* (min, preferred, max) */
 }
 
 h2 {
   color: var(--col-weiss);
   font-size: clamp(0.6rem, 2vw, 3rem); /* (min, preferred, max) */
   font-weight: 600;
-  margin: clamp(2rem, 9vw, 8rem); /* (min, preferred, max) */
+  margin-bottom: 2vw;
 }
 
 h3 {
 }
 
 h4 {
+  color: var(--col-weiss);
+  font-size: clamp(0.4rem, 1.4vw, 2rem); /* (min, preferred, max) */
+  font-weight: 500;
 }
 
 h5 {
@@ -58,14 +61,15 @@ h6 {
 /* MAIN */
 .content {
   flex: 1;
-  margin: clamp(2rem, 9vw, 8rem); /* (min, preferred, max) */
+  margin: clamp(2rem, 9vw, 8rem); /* (min, preferred, max) */ 
 }
 
 .box {
   background-color: #0f2848; 
   border-radius: 2.6vw; 
-  padding: clamp(0.1rem, 2vw, 1.5rem);
+  padding-top: 2vw;
   outline: 1px solid #ffffff;
+  height: -60%;
 }
 
 .box_karte {
@@ -86,16 +90,63 @@ h6 {
   transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
   z-index: 1;
 }
+
 .cls-1:hover {
   filter: brightness(0.75);
   transform: scale(1.2);
   z-index: 100;
 }
 
+/* Legende */
+
+.legende {
+  display: flex;
+  flex-direction: column;
+  margin-top: -56vw;
+}
+
+.legende_beschreibung {
+  margin-top: 2.8vw;
+  display: flex;
+  flex-direction: row;
+  gap: 2vw;
+  align-items: center;
+}
+
+#punkt_gruen {
+  height: 3vw;
+  width: 3vw;
+  border-radius: 50%;
+  background-color: var(--col-gruen);
+}
+
+#punkt_orange {
+  height: 3vw;
+  width: 3vw;
+  border-radius: 50%;
+  background-color: var(--col-orange);
+}
+
+#punkt_rot{
+  height: 3vw;
+  width: 3vw;
+  border-radius: 50%;
+  background-color: var(--col-rot);
+}
+
+/* Linien unten */
+
+.linien_text {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  width: 80%;
+}
+
 /* FOOTER */
 .footer {
   width: 100vw;
-  margin-top: auto;
+  margin-top: 3vw;
   overflow: hidden;
   bottom: 0;
   display: block; /* entfernt den kleinen Abstand unter dem Bild */
