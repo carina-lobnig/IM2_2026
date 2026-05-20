@@ -1,19 +1,18 @@
-@import "fonts.css";
-html,
-body {
-  min-height: 100%;
-}
-
-body {
+html, body {
   background-color: var(--col-blau);
   font-family: "termina", sans-serif;
 
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-
+  
   margin: 0;
+  padding: 0;
+
+  background-color: var(--col-blau);
+  font-family: "termina", sans-serif;
 }
+
 
 :root {
   --col-weiss: #ffffff;
@@ -28,23 +27,20 @@ body {
   box-sizing: border-box;
 }
 
-body {
-  background-color: var(--col-blau);
-  font-family: "termina", sans-serif;
-  margin: clamp(1rem, 6vw, 8rem); /* (min, preferred, max) */
-}
 
 h1 {
   color: var(--col-gruen);
   font-size: clamp(2rem, 8vw, 12rem); /* (min, preferred, max) */
   font-weight: 800;
   line-height: 1.4; /* ohne "einheit" ist es relativ zur Schriftgrösse */
+  margin: clamp(2rem, 9vw, 8rem); /* (min, preferred, max) */
 }
 
 h2 {
   color: var(--col-weiss);
   font-size: clamp(0.6rem, 2vw, 3rem); /* (min, preferred, max) */
   font-weight: 600;
+  margin: clamp(2rem, 9vw, 8rem); /* (min, preferred, max) */
 }
 
 h3 {
@@ -62,20 +58,51 @@ h6 {
 /* MAIN */
 .content {
   flex: 1;
-  margin: clamp(1rem, 6vw, 8rem);
+  margin: clamp(2rem, 9vw, 8rem); /* (min, preferred, max) */
+}
+
+.box {
+  background-color: #0f2848; 
+  border-radius: 2.6vw; 
+  padding: clamp(0.1rem, 2vw, 1.5rem);
+  outline: 1px solid #ffffff;
+}
+
+.box_karte {
+  display: flex;
+  justify-content: flex-end; 
+}
+
+.karte {
+  width: 80%;
+}
+
+/* Punkte */
+
+.cls-1 {
+  /* svg Elemente sklaieren standartmässig nicht um ihre eigene Mitte */
+  transform-box: fill-box;  /* Fläche auf die wir uns beziehen wollen wird nur auf den Kreis reduziert */
+  transform-origin: center; /* setzt den Ankerpunkt in die Mitte */
+  transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+  z-index: 1;
+}
+.cls-1:hover {
+  filter: brightness(0.75);
+  transform: scale(1.2);
+  z-index: 100;
 }
 
 /* FOOTER */
-
 .footer {
-  width: 100%;
+  width: 100vw;
   margin-top: auto;
   overflow: hidden;
   bottom: 0;
+  display: block; /* entfernt den kleinen Abstand unter dem Bild */
 }
 
-.footer-skyline {
+/* .footer-skyline {
   display: block;
   width: 100%;
   height: auto;
-}
+} */
