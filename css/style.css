@@ -1,11 +1,12 @@
-html, body {
+html,
+body {
   background-color: var(--col-blau);
   font-family: "termina", sans-serif;
 
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  
+
   margin: 0;
   padding: 0;
 
@@ -27,7 +28,6 @@ html, body {
   padding: 0;
   box-sizing: border-box;
 }
-
 
 h1 {
   color: var(--col-gruen);
@@ -61,12 +61,12 @@ h6 {
 /* MAIN */
 .content {
   flex: 1;
-  margin: clamp(2rem, 9vw, 8rem); /* (min, preferred, max) */ 
+  margin: clamp(2rem, 9vw, 8rem); /* (min, preferred, max) */
 }
 
 .box {
-  background-color: #0f2848; 
-  border-radius: 2.6vw; 
+  background-color: #0f2848;
+  border-radius: 2.6vw;
   padding-top: 2vw;
   outline: 1px solid #ffffff;
   height: -60%;
@@ -74,7 +74,7 @@ h6 {
 
 .box_karte {
   display: flex;
-  justify-content: flex-end; 
+  justify-content: flex-end;
 }
 
 .karte {
@@ -85,9 +85,11 @@ h6 {
 
 .cls-1 {
   /* svg Elemente sklaieren standartmässig nicht um ihre eigene Mitte */
-  transform-box: fill-box;  /* Fläche auf die wir uns beziehen wollen wird nur auf den Kreis reduziert */
+  transform-box: fill-box; /* Fläche auf die wir uns beziehen wollen wird nur auf den Kreis reduziert */
   transform-origin: center; /* setzt den Ankerpunkt in die Mitte */
-  transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+  transition:
+    transform 0.2s ease-in-out,
+    filter 0.2s ease-in-out;
   z-index: 1;
 }
 
@@ -127,7 +129,7 @@ h6 {
   background-color: var(--col-orange);
 }
 
-#punkt_rot{
+#punkt_rot {
   height: 3vw;
   width: 3vw;
   border-radius: 50%;
@@ -137,7 +139,7 @@ h6 {
 /* cards */
 
 #cards {
-  padding-left: 2vw;  
+  padding-left: 2vw;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
   gap: 1rem;
@@ -155,8 +157,9 @@ h6 {
   background-color: var(--col-lightblue);
   border-radius: 1vw;
   outline: 1px solid var(--col-weiss);
-  box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.4) ; /* offset-x  offset-y  blue-radius */
-  margin-bottom: 1.7vw;
+  box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.4); /* offset-x  offset-y  blue-radius */
+  margin-bottom: 1vw;
+  margin-top: 0.5vw;
   padding: 1vw;
   color: var(--col-weiss);
 }
@@ -165,6 +168,17 @@ h6 {
   color: var(--col-gruen);
 }
 
+.card-title {
+  color: var(--col-gruen);
+}
+
+.label {
+  color: var(--col-weiss);
+}
+
+.value {
+  color: var(--col-gruen);
+}
 /* Linien unten */
 
 .linien_text {
@@ -175,6 +189,9 @@ h6 {
 }
 
 /* FOOTER */
+
+.auto {
+}
 .footer {
   width: 100vw;
   margin-top: 3vw;

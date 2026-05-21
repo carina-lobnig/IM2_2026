@@ -18,30 +18,36 @@ function showDaten(data) {
   cards.innerHTML = '';
 
   data.results.forEach((parkhaus) => {
-    const card = document.createElement('div');
-    card.classList.add('card');
+  const card = document.createElement('div');
+  card.classList.add('card');
 
-    let farbe;
-    if (parkhaus.auslastung_prozent >= 80) {
-      farbe = 'var(--col-rot)';
-    } else if (parkhaus.auslastung_prozent >= 50) {
-      farbe = 'var(--col-orange)';
-    } else {
-      farbe = 'var(--col-gruen)';
-    }
+  card.innerHTML = `
+    <h3 class="card-title">${parkhaus.title}</h3>
 
-    card.innerHTML = `
-      <h3>${parkhaus.title}</h3>
-      <p><strong>Status</strong><br>${parkhaus.status}</p>
-      <p><strong>Freie Plätze</strong><br>${parkhaus.free}</p>
-      <p><strong>Auslastung</strong><br>
-        <span style="color: ${farbe}">${parkhaus.auslastung_prozent ?? '–'}%</span>
-      </p>
-      <a href="${parkhaus.link}" target="_blank" rel="noopener noreferrer">mehr Infos</a>
-    `;
+    <p>
+      <strong class="label">Status</strong><br>
+      <span class="value">${parkhaus.status}</span>
+    </p>
 
-    cards.appendChild(card);
-  });
+    <p>
+      <strong class="label">Freie Plätze</strong><br>
+      <span class="value">${parkhaus.free}</span>
+    </p>
+
+    <p>
+      <strong class="label">Auslastung</strong><br>
+      <span class="value">
+        ${parkhaus.auslastung_prozent ?? '–'}%
+      </span>
+    </p>
+
+    <a href="${parkhaus.link}" target="_blank" rel="noopener noreferrer">
+      mehr Infos
+    </a>
+  `;
+
+  cards.appendChild(card);
+});
 }
 
 loadParkhaus();
