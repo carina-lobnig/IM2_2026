@@ -31,7 +31,6 @@ body {
   box-sizing: border-box;
 }
 
-
 h1 {
   color: var(--col-gruen);
   font-size: clamp(2rem, 8vw, 12rem); /* (min, preferred, max) */
@@ -229,18 +228,21 @@ h4 {
   width: 73%;
 }
 
-
 /* Punkte und cards */
 
-#City, .cls-1 {  /* da svgs keine pointer funktion haben, muss das gemacht werden */
+#City,
+.cls-1 {
+  /* da svgs keine pointer funktion haben, muss das gemacht werden */
   cursor: pointer;
   pointer-events: all;
 }
 
 .card.active {
-    background-color: #40689d;
-    transform: translateX(1vw);
-    transition: transform 0.5s ease, background-color 0.5s ease;
+  background-color: #40689d;
+  transform: translateX(1vw);
+  transition:
+    transform 0.5s ease,
+    background-color 0.5s ease;
 }
 
 .active-point {
@@ -251,15 +253,71 @@ h4 {
 
 /* FOOTER */
 
+/* FOOTER */
 .footer {
   width: 100vw;
   margin-top: 3vw;
   overflow: hidden;
   bottom: 0;
-  display: block; /* entfernt den kleinen Abstand unter dem Bild */
+  display: block;
 }
 
-#car {
+.car-container {
+  position: relative;
+  width: 100vw;
+  height: 3vw;
+  overflow: hidden;
+}
+
+.auto {
+  position: absolute;
+  bottom: 0;
   height: 3vw;
   width: 4.7vw;
+  z-index: 10;
+  transform: scaleX(-1); /* fährt von links nach rechts */
+  animation: drive 12s linear infinite;
+}
+
+/* Jedes Auto bekommt einen anderen Startzeitpunkt */
+.auto:nth-child(1) {
+  animation-delay: 0s;
+  bottom: 0vw;
+}
+.auto:nth-child(2) {
+  animation-delay: -1.5s;
+  bottom: 0vw;
+}
+.auto:nth-child(3) {
+  animation-delay: -3s;
+  bottom: 0vw;
+}
+.auto:nth-child(4) {
+  animation-delay: -4.5s;
+  bottom: 0vw;
+}
+.auto:nth-child(5) {
+  animation-delay: -6s;
+  bottom: 0vw;
+}
+.auto:nth-child(6) {
+  animation-delay: -7.5s;
+  bottom: 0vw;
+}
+.auto:nth-child(7) {
+  animation-delay: -9s;
+  bottom: 0vw;
+}
+.auto:nth-child(8) {
+  animation-delay: -10.5s;
+  bottom: 0vw;
+}
+
+@keyframes drive {
+  0% {
+    left: -6vw;
+  }
+  100% {
+    left: 105vw;
+  }
 }
