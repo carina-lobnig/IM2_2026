@@ -56,16 +56,6 @@ h4 {
   font-weight: 500;
 }
 
-h5 {
-}
-
-h6 {
-}
-
-br {
-  display: none;
-}
-
 /* MAIN */
 .content {
   flex: 1;
@@ -86,7 +76,14 @@ br {
 }
 
 .karte {
-  width: 77%;
+  width: 73%;
+}
+
+/* animation */
+
+lottie-player {
+    width: 100vw;
+    height: 100vh;
 }
 
 /* Punkte */
@@ -112,7 +109,7 @@ br {
 .legende {
   display: flex;
   flex-direction: column;
-  margin-top: -56vw;
+  margin-top: -50vw;
 }
 
 .legende_beschreibung {
@@ -149,7 +146,7 @@ br {
 #cards {
   padding-left: 2vw;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16vw, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(19vw, 1fr));
   height: 50vw;
   overflow-y: auto;
 }
@@ -166,6 +163,10 @@ br {
   margin-top: 0.5vw;
   padding: 1vw;
   color: var(--col-weiss);
+}
+
+.card br {
+  display: none;
 }
 
 .card-title {
@@ -208,21 +209,30 @@ br {
   display: flex;
   flex-direction: column;
   margin-left: auto;
-  width: 77%;
+  width: 73%;
 }
 
 
-/* Punkte */
+/* Punkte und cards */
 
 #City, .cls-1 {  /* da svgs keine pointer funktion haben, muss das gemacht werden */
   cursor: pointer;
   pointer-events: all;
 }
 
-/* FOOTER */
-
-.auto {
+.card.active {
+    background-color: #40689d;
+    transform: translateX(1vw);
+    transition: transform 0.5s ease, background-color 0.5s ease;
 }
+
+.active-point {
+  filter: brightness(0.75);
+  transform: scale(1.2);
+  z-index: 100;
+}
+
+/* FOOTER */
 
 .footer {
   width: 100vw;
@@ -231,9 +241,3 @@ br {
   bottom: 0;
   display: block; /* entfernt den kleinen Abstand unter dem Bild */
 }
-
-/* .footer-skyline {
-  display: block;
-  width: 100%;
-  height: auto;
-} */
