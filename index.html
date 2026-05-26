@@ -10,22 +10,14 @@
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   </head>
   <body>
-    <header class="content">
-      <h1>
+    <header>
+      <h1 id="titel">
         WOHII <br/>
         MIT MIM CHARRE!?
       </h1>
 
-      <!-- <lottie-player 
-        src="animation.json"
-        background="transparent"
-        speed="1"
-        loop
-        autoplay>
-      </lottie-player> -->
-
       <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.14/dist/dotlottie-wc.js" type="module"></script>
-      <dotlottie-wc src="https://lottie.host/e852a974-a532-4bf2-aeb2-31ddd08d33d5/srhipDPztD.lottie" stateMachineId="flow_2" style="width: 100%;height: 100%"></dotlottie-wc>
+      <dotlottie-wc id="animation" src="https://lottie.host/e852a974-a532-4bf2-aeb2-31ddd08d33d5/srhipDPztD.lottie" stateMachineId="flow_2"></dotlottie-wc>
 
     </header>
 
@@ -508,6 +500,10 @@
       <img class="footer"
       src="svgs/Skylinebasel.svg"
       alt="Basel Skyline"
+      />
+      <img id="car"
+      src="svgs/auto_icon.svg"
+      alt="Auto"
       />
     </footer>
     <script src="js/script.js" type="module"></script>
