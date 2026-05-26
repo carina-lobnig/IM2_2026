@@ -6,48 +6,106 @@ async function loadParkhaus() {
     const url = 'https://data.bs.ch/api/explore/v2.1/catalog/datasets/100088/records?limit=20';
     try {
         const response = await fetch(url);
-        const data = await response.json(); // ← erst speichern
-        console.log(data);                  // ← dann loggen
-        showDaten(data);                    // ← dann anzeigen
+        const data = await response.json();
+        console.log(data);
+        showDaten(data);
     } catch (error) {
         console.error(error);
     }
 }
 
+const parkIdMapping = {
+    'city': 'City',
+    'storchen': 'Storchen',
+    'europe': 'Europe',
+    'badbahnhof': 'BadBahnhof',
+    'messe': 'Messe',
+    'claramatte': 'Claramatte',
+    'rebgasse': 'Rebgasse',
+    'clarahuus': 'Clarahuus',
+    'aeschen': 'Aeschen',
+    'anfos': 'Anfos',
+    'kunstmuseum': 'Kunstmuseum',
+    'postbasel': 'Post',
+    'centralbahn': 'Centralbahn',
+    'bahnhofsued': 'BahnhofSued',
+    'elisabethen': 'Elisabethen',
+    'steinen': 'Steinen'
+};
+
 function showDaten(data) {
-  cards.innerHTML = '';
+    cards.innerHTML = '';
 
-  data.results.forEach((parkhaus) => {
-  const card = document.createElement('div');
-  card.classList.add('card');
+    data.results.forEach((parkhaus) => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.id = `card-${parkhaus.id2}`;
 
-  card.innerHTML = `
-    <h3 class="card-title">${parkhaus.title}</h3>
+        // Farbe je nach Auslastung
+        let farbe;
+        if (parkhaus.free <= 5) {
+            farbe = '#ff7d7f';
+        } else if (parkhaus.free <= 30) {
+            farbe = '#ffb387';
+        } else {
+            farbe = '#e7ffb2';
+        }
 
-    <p>
-      <strong class="label">Status</strong><br>
-      <span class="value">${parkhaus.status}</span>
-    </p>
+        // Punkt in der SVG einfärben
+        const svgId = parkIdMapping[parkhaus.id2];
+        const svgPunkt = document.querySelector(`#${svgId}`);
+        if (svgPunkt) svgPunkt.setAttribute('fill', farbe);
 
-    <p>
-      <strong class="label">Freie Plätze</strong><br>
-      <span class="value">${parkhaus.free}</span>
-    </p>
+        card.innerHTML = `
+            <h3 class="card-title">${parkhaus.title}</h3>
+            <p class="kategorie">
+                <strong class="label">Status</strong><br>
+                <span class="value">${parkhaus.status}</span>
+            </p>
+            <p class="kategorie">
+                <strong class="label">Freie Plätze</strong><br>
+                <span class="value">${parkhaus.free}</span>
+            </p>
+            <p class="kategorie">
+                <strong class="label">Auslastung</strong><br>
+                <span class="value">${parkhaus.auslastung_prozent ?? '–'}%</span>
+            </p>
+            <a class="link" href="${parkhaus.link}" target="_blank" rel="noopener noreferrer">
+                mehr Infos
+            </a>
+        `;
 
-    <p>
-      <strong class="label">Auslastung</strong><br>
-      <span class="value">
-        ${parkhaus.auslastung_prozent ?? '–'}%
-      </span>
-    </p>
-
-    <a href="${parkhaus.link}" target="_blank" rel="noopener noreferrer">
-      mehr Infos
-    </a>
-  `;
-
-  cards.appendChild(card);
-});
+        cards.appendChild(card);
+    });
 }
+
+const punkte = {
+    City: 'city',
+    Storchen: 'storchen',
+    Europe: 'europe',
+    BadBahnhof: 'badbahnhof',
+    Messe: 'messe',
+    Claramatte: 'claramatte',
+    Rebgasse: 'rebgasse',
+    Clarahuus: 'clarahuus',
+    Aeschen: 'aeschen',
+    Anfos: 'anfos',
+    Kunstmuseum: 'kunstmuseum',
+    Post: 'postbasel',
+    Centralbahn: 'centralbahn',
+    BahnhofSued: 'bahnhofsued',
+    Elisabethen: 'elisabethen',
+    Steinen: 'steinen'
+};
+
+Object.entries(punkte).forEach(([punktId, cardId]) => {
+    const punkt = document.querySelector(`#${punktId}`);
+    if (punkt) {
+        punkt.addEventListener('click', function() {
+            const card = document.querySelector(`#card-${cardId}`);
+            if (card) card.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+});
 
 loadParkhaus();

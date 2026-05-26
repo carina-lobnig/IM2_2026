@@ -29,6 +29,7 @@ body {
   box-sizing: border-box;
 }
 
+
 h1 {
   color: var(--col-gruen);
   font-size: clamp(2rem, 8vw, 12rem); /* (min, preferred, max) */
@@ -44,6 +45,9 @@ h2 {
 }
 
 h3 {
+  color: var(--col-gruen);
+  font-size: clamp(0.4rem, 1.2vw, 3rem); /* (min, preferred, max) */
+  font-weight: 800;
 }
 
 h4 {
@@ -56,6 +60,10 @@ h5 {
 }
 
 h6 {
+}
+
+br {
+  display: none;
 }
 
 /* MAIN */
@@ -78,7 +86,7 @@ h6 {
 }
 
 .karte {
-  width: 80%;
+  width: 77%;
 }
 
 /* Punkte */
@@ -141,19 +149,15 @@ h6 {
 #cards {
   padding-left: 2vw;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(16vw, 1fr));
   height: 50vw;
   overflow-y: auto;
 }
 
 .card {
   width: 15vw;
-  height: 23vw;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   background-color: var(--col-lightblue);
   border-radius: 1vw;
   outline: 1px solid var(--col-weiss);
@@ -164,34 +168,62 @@ h6 {
   color: var(--col-weiss);
 }
 
-.card h3 {
-  color: var(--col-gruen);
-}
-
 .card-title {
   color: var(--col-gruen);
+  margin-bottom: 1.5vw;
+  margin-top: 0.7vw;
 }
 
 .label {
   color: var(--col-weiss);
+  font-size: clamp(0.1rem, 1.2vw, 3rem); /* (min, preferred, max) */
+  font-weight: 800;
+  display: block;
+  margin-bottom: 0.3vw;
 }
 
 .value {
   color: var(--col-gruen);
+  font-size: clamp(0.3rem, 1vw, 3rem); /* (min, preferred, max) */
+  font-weight: 500;
+  display: block;
+  margin-bottom: 1vw;
 }
+
+.kategorie {
+  margin-bottom: 0.8vw;
+  line-height: 1.2;
+}
+
+.link {
+  color: var(--col-weiss);
+  font-size: clamp(0.3rem, 1vw, 3rem); /* (min, preferred, max) */
+  font-weight: 500;
+  margin-bottom: 1.5vw;
+}
+
 /* Linien unten */
 
 .linien_text {
   display: flex;
   flex-direction: column;
   margin-left: auto;
-  width: 80%;
+  width: 77%;
+}
+
+
+/* Punkte */
+
+#City, .cls-1 {  /* da svgs keine pointer funktion haben, muss das gemacht werden */
+  cursor: pointer;
+  pointer-events: all;
 }
 
 /* FOOTER */
 
 .auto {
 }
+
 .footer {
   width: 100vw;
   margin-top: 3vw;
