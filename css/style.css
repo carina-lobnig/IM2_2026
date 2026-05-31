@@ -90,18 +90,16 @@ h4 {
 
 #animation {
   position: absolute;
-  inset: 0;
-
+  top: 0;
+  left: 0;
   width: 100vw;
-  height: 100vh;
-
   z-index: 1;
 
   pointer-events: all;  /* macht dass die Animation klickbar ist */
   cursor: pointer;
 }
 
-/* Punkte */
+/* Punkte hover */
 
 .cls-1 {
   /* svg Elemente sklaieren standartmässig nicht um ihre eigene Mitte */
@@ -251,72 +249,63 @@ h4 {
 }
 
 /* FOOTER */
-
-/* FOOTER */
 .footer {
   width: 100vw;
-  margin-top: 3vw;
   overflow: hidden;
   bottom: 0;
   display: block;
-}
-
-.car-container {
+  z-index: 1;
   position: relative;
-  width: 100vw;
-  height: 3vw;
-  overflow: hidden;
 }
 
-.auto {
-  position: absolute;
+#car1 {
+  height: 2vw;
+  position: absolute; 
+  z-index: 50;
   bottom: 0;
-  height: 3vw;
-  width: 4.7vw;
-  z-index: 10;
-  transform: scaleX(-1); /* fährt von links nach rechts */
-  animation: drive 12s linear infinite;
+  animation: fahren1 7s linear infinite;   /* 8s = geschwindigkeit */
 }
 
-/* Jedes Auto bekommt einen anderen Startzeitpunkt */
-.auto:nth-child(1) {
-  animation-delay: 0s;
-  bottom: 0vw;
-}
-.auto:nth-child(2) {
-  animation-delay: -1.5s;
-  bottom: 0vw;
-}
-.auto:nth-child(3) {
-  animation-delay: -3s;
-  bottom: 0vw;
-}
-.auto:nth-child(4) {
-  animation-delay: -4.5s;
-  bottom: 0vw;
-}
-.auto:nth-child(5) {
-  animation-delay: -6s;
-  bottom: 0vw;
-}
-.auto:nth-child(6) {
-  animation-delay: -7.5s;
-  bottom: 0vw;
-}
-.auto:nth-child(7) {
-  animation-delay: -9s;
-  bottom: 0vw;
-}
-.auto:nth-child(8) {
-  animation-delay: -10.5s;
-  bottom: 0vw;
-}
-
-@keyframes drive {
-  0% {
-    left: -6vw;
+@keyframes fahren1 {
+  from {
+    left: -10%;          /* startet links ausserhalb */
   }
-  100% {
-    left: 105vw;
+  to {
+    left: 160%;         /* endet rechts ausserhalb */
+  }
+}
+
+#car2 {
+  height: 2vw;
+  position: absolute; 
+  z-index: 50;
+  bottom: 0;
+  animation: fahren2 7s linear infinite;   /* 8s = geschwindigkeit */
+}
+
+@keyframes fahren2 {
+  from {
+    left: -30%;          /* startet links ausserhalb */
+  }
+  to {
+    left: 140%;         /* endet rechts ausserhalb */
+  }
+}
+
+#car3 {
+  height: 2vw;
+  position: absolute; 
+  z-index: 50;
+  bottom: 0;
+  animation: fahren3 7s linear infinite;   /* 8s = geschwindigkeit */
+}
+
+
+@keyframes fahren3 {
+  from {
+    left: -60%;          /* startet links ausserhalb */
+  }
+  to {
+    left: 110%;         /* endet rechts ausserhalb */
   }
 }
