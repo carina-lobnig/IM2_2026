@@ -48,7 +48,7 @@ h2 {
 
 h3 {
   color: var(--col-gruen);
-  font-size: clamp(0.4rem, 1.2vw, 3rem); /* (min, preferred, max) */
+  font-size: clamp(0.1rem, 1.2vw, 2rem); /* (min, preferred, max) */
   font-weight: 800;
 }
 
@@ -90,9 +90,11 @@ h4 {
 
 #animation {
   position: absolute;
+  margin-top: -20vw;
+  padding-right: 2vw;
   top: 0;
-  left: 0;
   width: 100vw;
+  height: 100vw;
   z-index: 1;
 
   pointer-events: all;  /* macht dass die Animation klickbar ist */
@@ -263,7 +265,7 @@ h4 {
   position: absolute; 
   z-index: 50;
   bottom: 0;
-  animation: fahren1 7s linear infinite;   /* 8s = geschwindigkeit */
+  animation: fahren1 9s linear infinite;   /* 8s = geschwindigkeit */
 }
 
 @keyframes fahren1 {
@@ -280,7 +282,7 @@ h4 {
   position: absolute; 
   z-index: 50;
   bottom: 0;
-  animation: fahren2 7s linear infinite;   /* 8s = geschwindigkeit */
+  animation: fahren2 9s linear infinite;   /* 8s = geschwindigkeit */
 }
 
 @keyframes fahren2 {
@@ -297,7 +299,7 @@ h4 {
   position: absolute; 
   z-index: 50;
   bottom: 0;
-  animation: fahren3 7s linear infinite;   /* 8s = geschwindigkeit */
+  animation: fahren3 9s linear infinite;   /* 8s = geschwindigkeit */
 }
 
 

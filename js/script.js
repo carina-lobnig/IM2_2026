@@ -38,14 +38,18 @@ function activateCard(cardId) {
   document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
   document.querySelectorAll('.cls-1').forEach(p => p.classList.remove('active-point'));
 
-  card.classList.add('active');
   card.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-  const punktId = parkIdMapping[cardId];
-  if (punktId) {
-    const punkt = document.querySelector(`#${punktId}`);
-    if (punkt) punkt.classList.add('active-point');
-  }
+  // erst nach 800ms die Klassen hinzufügen
+  setTimeout(() => {
+    card.classList.add('active');
+
+    const punktId = parkIdMapping[cardId];
+    if (punktId) {
+      const punkt = document.querySelector(`#${punktId}`);
+      if (punkt) punkt.classList.add('active-point');
+    }
+  }, 800);
 }
 
 function showDaten(data) {
