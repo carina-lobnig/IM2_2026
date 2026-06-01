@@ -11,6 +11,7 @@ body {
 
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 
   background-color: var(--col-blau);
   font-family: "termina", sans-serif;
