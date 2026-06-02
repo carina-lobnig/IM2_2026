@@ -85,6 +85,7 @@ h4 {
 
 .karte {
   width: 73%;
+  z-index: 99; /* Muss über der Animation liegen, da diese sonst die Punkte überdekt und diese können dann nicht mehr angeklickt werden */
 }
 
 /* animation */
@@ -108,53 +109,16 @@ h4 {
   /* svg Elemente sklaieren standartmässig nicht um ihre eigene Mitte */
   transform-box: fill-box; /* Fläche auf die wir uns beziehen wollen wird nur auf den Kreis reduziert */
   transform-origin: center; /* setzt den Ankerpunkt in die Mitte */
-  transition:
-    transform 0.2s ease-in-out,
-    filter 0.2s ease-in-out;
-  z-index: 1;
+  transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+  /* Muss hinzugefügt werden, da SVGs dies normalerweise nicht haben */
+  cursor: pointer;
+  pointer-events: all;
 }
 
 .cls-1:hover {
   filter: brightness(0.75);
   transform: scale(1.2);
   z-index: 100;
-}
-
-/* Legende */
-
-.legende {
-  display: flex;
-  flex-direction: column;
-  margin-top: -50vw;
-}
-
-.legende_beschreibung {
-  margin-top: 2.8vw;
-  display: flex;
-  flex-direction: row;
-  gap: 2vw;
-  align-items: center;
-}
-
-#punkt_gruen {
-  height: 3vw;
-  width: 3vw;
-  border-radius: 50%;
-  background-color: var(--col-gruen);
-}
-
-#punkt_orange {
-  height: 3vw;
-  width: 3vw;
-  border-radius: 50%;
-  background-color: var(--col-orange);
-}
-
-#punkt_rot {
-  height: 3vw;
-  width: 3vw;
-  border-radius: 50%;
-  background-color: var(--col-rot);
 }
 
 /* cards */
@@ -165,6 +129,8 @@ h4 {
   grid-template-columns: repeat(auto-fit, minmax(19vw, 1fr));
   height: 50vw;
   overflow-y: auto;
+  z-index: 20; /* muss vor der Animation liegn. Ansonsten überdeckt die Animation die oberste Card und diese kann nicht mehr angeklickt werden. */
+
 }
 
 .card {
@@ -219,23 +185,8 @@ h4 {
   margin-bottom: 1.5vw;
 }
 
-/* Linien unten */
 
-.linien_text {
-  display: flex;
-  flex-direction: column;
-  margin-left: auto;
-  width: 73%;
-}
-
-/* Punkte und cards */
-
-#City,
-.cls-1 {
-  /* da svgs keine pointer funktion haben, muss das gemacht werden */
-  cursor: pointer;
-  pointer-events: all;
-}
+/* Active States der Punkte und Cards*/
 
 .card.active {
   background-color: #40689d;
@@ -250,6 +201,53 @@ h4 {
   transform: scale(1.2);
   z-index: 100;
 }
+
+/* Legende */
+
+.legende {
+  display: flex;
+  flex-direction: column;
+  margin-top: -50vw;
+}
+
+.legende_beschreibung {
+  margin-top: 2.8vw;
+  display: flex;
+  flex-direction: row;
+  gap: 2vw;
+  align-items: center;
+}
+
+#punkt_gruen {
+  height: 3vw;
+  width: 3vw;
+  border-radius: 50%;
+  background-color: var(--col-gruen);
+}
+
+#punkt_orange {
+  height: 3vw;
+  width: 3vw;
+  border-radius: 50%;
+  background-color: var(--col-orange);
+}
+
+#punkt_rot {
+  height: 3vw;
+  width: 3vw;
+  border-radius: 50%;
+  background-color: var(--col-rot);
+}
+
+/* Linien unten */
+
+.linien_text {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  width: 73%;
+}
+
 
 /* FOOTER */
 .footer {
