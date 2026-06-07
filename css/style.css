@@ -103,6 +103,30 @@ h4 {
   cursor: pointer;
 }
 
+#animation-mobile {
+  display: none;
+  position: relative;
+  margin-top: -22vh;
+  margin-bottom: -9vw;
+  padding-right: 2vw;
+  transform: translateX(-22%);
+  width: 180vw;                 
+  height: 180vw;
+  z-index: 2;
+
+  pointer-events: all;  /* macht dass die Animation klickbar ist */
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  #animation {
+    display: none;
+  }
+  #animation-mobile {
+    display: block;
+  }
+}
+
 /* Punkte hover */
 
 .cls-1 {
